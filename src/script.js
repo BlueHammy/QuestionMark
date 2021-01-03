@@ -1,69 +1,5 @@
-var fields = {};
-
-document.addEventListener("DOMContentLoaded", function() {
- fields.firstName = document.getElementById('firstName');
- fields.lastName = document.getElementById('lastName');
- fields.email = document.getElementById('email');
-})
-
-function isNotEmpty(value) {
- if (value == null || typeof value == 'undefined' ) return false;
- return (value.length > 0);
-}
-
-function isEmail(email) {
-  let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
- return regex.test(String(email).toLowerCase());
-}
-
-function fieldValidation(field, validationFunction) {
- if (field == null) return false;
-
- let isFieldValid = validationFunction(field.value)
- if (!isFieldValid) {
- field.className = 'placeholderRed';
- } else {
- field.className = '';
- }
-
- return isFieldValid;
-}
-
-function isValid() {
- var valid = true;
-
- valid &= fieldValidation(fields.firstName, isNotEmpty);
- valid &= fieldValidation(fields.lastName, isNotEmpty);
- valid &= fieldValidation(fields.email, isEmail);
-
- return valid;
-}
-
-
-class User {
- constructor(firstName, lastName, email) {
- this.firstName = firstName;
- this.lastName = lastName;
- this.email = email;
- }
-}
-
-function sendContact() {
-
- if (isValid()) {
- let usr = new User(firstName.value, lastName.value, email.value);
-
- alert(`${usr.firstName} thanks for registering.`)
-
- } else {
- alert("There was an error")
- }
-}
-
-
-
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+var countDownDate = new Date("Apr 3, 2021 10:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -91,7 +27,7 @@ var x = setInterval(function() {
   }
 }, 1000);
 
-/*
+
 (function() {
     var
     // Obtain a reference to the canvas element using its id.
@@ -113,9 +49,9 @@ var x = setInterval(function() {
     // Display custom canvas. In this case it's a blue, 5 pixel
     // border that resizes along with the browser window.
     function redraw() {
-       context.strokeStyle = 'black';
-       context.lineWidth = '5000';
-       context.strokeRect(0, 0, window.innerWidth, window.innerHeight);
+       context.fillStyle = "black";
+       context.fillRect(0, 0, htmlCanvas.width, htmlCanvas.height);
+
     }
 
     // Runs each time the DOM window resize event fires.
@@ -127,4 +63,17 @@ var x = setInterval(function() {
         redraw();
     }
 })();
-*/
+
+function SubForm (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/5906/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+          alert("Your Email Has Successfully Been Added")
+        },
+        error: function(){
+          alert("There was an error; Please contact sdfg45435gsd325@outlook.com for help")
+        }
+    });
+}
