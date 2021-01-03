@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>?</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+</head>
+
+<br><br>
+
+<link rel="stylesheet" type="text/css" media="screen" href="src/main.css" />
+
+<body>
+    <canvas id='c' style='z-index: "-100"; position:absolute; left:0px; top:0px;'>
+    </canvas>
+
+<x-model class="model" src="assets/models/Question Mark/QuestionMark.gltf" style="width: 1500px; height: 300px">
+
+</x-model>
+
+
+<p id="Timer"></p>
+
+
+<script src="js/three.min.js"></script>
+<script src="js/three-gltf-loader.min.js"></script>
+<script src="js/model-element.min.js"></script>
+<script src="src/script.js"></script>
+
+<form id="myForm">
+   <label>First Name</label>
+   <br/>
+   <input name="first_name" />
+   <br/>
+   <label>Last Name</label>
+   <br/>
+   <input name="last_name" />
+   <br/>
+   <label>Email</label>
+   <br/>
+   <input name="email" />
+   <br/>
+ </form>
+ <button onclick="SubForm()">Submit</button>
+</body>
+
+</html>
